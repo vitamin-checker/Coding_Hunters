@@ -1,24 +1,13 @@
 import React from 'react';
+import Header from '../public/components/Header';
+import Footer from '../public/components/Footer';
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-white shadow-md fixed w-full z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-blue-600">Blogify</h1>
-          <nav className="hidden md:flex space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-blue-600 transition">Features</a>
-            <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition">Testimonials</a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Get Started</a>
-          </nav>
-          <button className="md:hidden text-gray-700">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <Header />
+      <main className="flex-grow">
+    
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white pt-32 pb-20">
@@ -99,18 +88,8 @@ function App() {
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-blue-900 text-white py-8">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="mb-4 md:mb-0">© 2023 Blogify. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-cyan-300 transition">Privacy Policy</a>
-            <a href="#" className="hover:text-cyan-300 transition">Terms of Service</a>
-            <a href="#" className="hover:text-cyan-300 transition">Contact Us</a>
-          </div>
-        </div>
-      </footer>
+      </main>
+      <Footer />
     </div>
   );
 }
