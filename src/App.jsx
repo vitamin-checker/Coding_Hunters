@@ -1,12 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from '../public/components/Header';
 import Footer from '../public/components/Footer';
+import Blog from '../public/page/Blog';
+import Contact from '../public/page/Contact';
+import Login from '../public/page/Login';
+import About from '../public/page/about';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
     
 
       {/* Hero Section */}
@@ -88,9 +94,50 @@ function App() {
           </form>
         </div>
       </section>
-      </main>
-      <Footer />
-    </div>
+          <Routes>
+            <Route path="/" element={
+              <>
+                {/* Hero Section */}
+                <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white pt-32 pb-20">
+                  <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 mb-10 md:mb-0">
+                      <h2 className="text-4xl md:text-5xl font-bold mb-4">Write, Share, Inspire</h2>
+                      <p className="text-xl mb-8 opacity-90">The simplest way to share your thoughts with the world</p>
+                      <button className="bg-cyan-400 hover:bg-cyan-500 text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                        Start Writing Now
+                      </button>
+                    </div>
+                    <div className="md:w-1/2">
+                      <div className="bg-white bg-opacity-20 rounded-xl h-80 md:h-96 w-full" 
+                           style={{backgroundImage: 'url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)', 
+                                   backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* Features Section */}
+                <section id="features" className="py-20 bg-gray-50">
+                  <div className="container mx-auto px-6">
+                    <h3 className="text-3xl font-bold text-center text-blue-600 mb-16">Why Choose Blogify?</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                      {/* Feature cards */}
+                    </div>
+                  </div>
+                </section>
+
+                {/* Testimonials and CTA sections */}
+              </>
+            } />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
